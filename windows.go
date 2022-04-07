@@ -138,6 +138,9 @@ func newEvent(name string, mask uint32) Event {
 	if mask&sysFSATTRIB == sysFSATTRIB {
 		e.Op |= Chmod
 	}
+	if mask&sysFSACCESS == sysFSACCESS {
+		e.Op |= Read
+	}
 	return e
 }
 

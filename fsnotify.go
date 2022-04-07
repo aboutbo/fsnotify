@@ -30,6 +30,7 @@ const (
 	Remove
 	Rename
 	Chmod
+	Read
 )
 
 func (op Op) String() string {
@@ -50,6 +51,9 @@ func (op Op) String() string {
 	}
 	if op&Chmod == Chmod {
 		buffer.WriteString("|CHMOD")
+	}
+	if op&Read == Read {
+		buffer.WriteString("|READ")
 	}
 	if buffer.Len() == 0 {
 		return ""
